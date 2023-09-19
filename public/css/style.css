@@ -889,7 +889,7 @@ form button[type="submit"]:hover {
   color: white;
   font-family: 'Alkatra', cursive;
   font-size: 40px;
-  margin-top: 20px;
+  margin-top: -50px;
   text-transform: uppercase;
   animation: flicker 7s infinite;
 }

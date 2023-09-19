@@ -19,6 +19,25 @@
                     <input type="email" id="email" name="email"  required placeholder="ENTER YOUR EMAIL" required>
                 </div>
                 <div class="form-group">
+                    <label for="role">Are you a victim or a witness?</label>
+                    <select name="gender" id="gender" class="form-control" required>
+                        <option value="" disabled selected>Choose one</option>
+                        <option value="Assault">Victim</option>
+                        <option value="Assault">Witness</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select name="gender" id="gender" class="form-control" required>
+                        <option value="" disabled selected>Choose gender</option>
+                        <option value="Assault">Male</option>
+                        <option value="Assault">Female</option>
+                        <option value="Assault">Don't Want to say</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="title">Crime:</label>
                     <select name="title" id="title" class="form-control" required>
                         <option value="" disabled selected>Select an option</option>
