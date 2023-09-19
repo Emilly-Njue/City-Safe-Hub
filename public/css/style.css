@@ -1,0 +1,952 @@
+
+/*--------------------------REGISTER/LOGIN--------------------------*/
+/* CSS for the navigation bar */
+.navbar {
+    list-style-type: none;
+    margin: -8px;
+    padding: 10px;
+    overflow: hidden;
+    background: transparent;
+    }
+
+  .navbar img {
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+  }
+
+    .navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: right;
+
+    }
+
+    .navbar a:hover {
+    background-color: #ffffff;
+    color: black;
+    }
+
+    /*-------------------------------- CSS for the registration form --------------------------------*/
+    .registration-form {
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    margin-top: 70px;
+
+    }
+
+    .registration-form h2 {
+    text-align: center;
+    color: white;
+    }
+
+    .registration-form .alert {
+      background: linear-gradient(to right, rgb(90, 46, 0), rgb(68, 43, 43), rgb(43, 0, 69));
+      color: white;
+      padding: 10px;
+    }
+
+    .registration-form input[type="text"],
+    .registration-form input[type="email"],
+    .registration-form input[type="password"],
+    .registration-form input[type="mobile"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+
+    /* CSS for the password toggle */
+.password-toggle {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  margin-left: 55px;
+}
+
+.password-toggle input[type="checkbox"]:checked {
+  background-color: #515860;
+  border-color: #000000;
+}
+
+.password-toggle label {
+  margin-left: 9px;
+  font-size: 14px;
+  color: #e1e1e1;
+  cursor: pointer;
+}
+
+
+/*-----------------------------LOGIN-----------------------------*/
+
+  /* CSS for the login form */
+  .login-form {
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: transparent;
+  margin-top: 100px;
+
+  }
+
+  .login-form h2 {
+  text-align: center;
+  color: white;
+  }
+
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  }
+
+  .login-form a {
+    font-size: small;
+    color: #ffffff;
+    text-decoration: underline;
+    margin-top: -10px;    
+  }
+
+  .login-form p {
+    color: white;
+  }
+
+/* CSS for the password toggle */
+
+.login-form .password-toggle {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 90px;
+}
+
+.login-form .password-toggle input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  margin-left: 55px;
+}
+
+.login-form .password-toggle input[type="checkbox"]:checked {
+  background-color: #515860;
+  border-color: #000000;
+}
+
+.login-form .password-toggle label {
+  margin-left: 9px;
+  font-size: 14px;
+  color: #e1e1e1;
+  cursor: pointer;
+}
+/*----------------------------------------------------------------*/
+
+
+
+/*-------------------HOMEPAGE---------------------*/
+#page-wrap{
+    overflow:hidden;
+    background-color:#e1dede;
+}
+    /*----------------------------------------------------HEADER----------------------------------------------------*/
+    #header{
+        position:fixed;
+        z-index:999;
+        left:0;
+        top: 0;
+        width:100%;
+        height: 10%;
+        transition:all .3s ease 0s;
+        background-color: none;
+    }
+    #header.header-v2 .header_content:after{
+        background:rgba(0,0,0,0.6);
+    }
+    #header.header-v2 .header_content .menu li:hover a{
+        background:#00004a;
+        text-decoration: none;
+    }
+    #header.header-v2 .header_content .menu li a{
+        color:#ffffff;
+    }
+   .header_content{
+        position:absolute;
+        left:0;
+        right:0;
+        top:50%;
+        padding:0 0;
+        text-align:right;
+        font-size:40px;
+        z-index:999;
+    }
+   /* .header_content:after{
+        content:'';
+        display:block;
+        position:absolute;
+    } */
+   .header_content .container{
+        position:relative;
+    }
+    .header_content .header_menu{
+        display:inline-block;
+        vertical-align:middle;
+        text-align:left;
+        font-size:14px;
+    }
+   .header_content .menu{
+        list-style:none;
+        margin:0;
+        padding:0;
+        margin-top: -5%;
+        margin-left: -15%;
+    }
+   .header_content .menu>li{
+        float:left;
+        position:relative;
+    }
+   .header_content .menu>li>a{
+    font-family: 'Alkatra', cursive;
+    display:block;
+    padding:0 20px;
+    line-height:24px;
+    color:#ffffff;
+    font-weight:500;
+    text-transform:uppercase;
+    font-size:13.45px;
+    text-decoration: none;
+    }
+    .header_content .menu>li:hover>a{
+        background-color:#493017;
+        color:#fff;
+    }
+    .header_logo{
+        float:left;
+        line-height:100px;
+        display: flex;
+    }
+    .header_logo img{
+        max-height:43px;
+        width: 60px;
+        height: 100px;
+        margin-top: -50px;
+    }
+
+/*----------------------------------------------OWL CAROUSEL SLIDER----------------------------------------------*/
+.slider-section {
+    position: relative;
+    height: 646px;
+    overflow: hidden;
+}
+.slider-section img {
+  width: 100%;
+  height: auto;
+}
+.owl-carousel .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slide-text {
+    position: absolute;
+    top: 27%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+.slide-text h1 {
+  font-size: 50px;
+  word-spacing: 20px;
+  color: white;
+  /* font-family: 'Alkatra', cursive; */
+  font-family: 'Faster One', cursive;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+.slide-text h2 {
+    font-size: 40px;
+    font-weight: bolder;
+    word-spacing: 10px;
+    color: white;
+    font-family: 'Alkatra', cursive;
+    font-family: 'Lobster', cursive;
+    text-transform: uppercase;
+    margin-top: 16%;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slide-text p {
+    font-size: 20px;
+    margin-bottom: 1em;
+    font-family: 'Alkatra', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+
+}
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*-----------------------------------------------RESERVATION PAGE----------------------------------------*/
+
+#calendar {
+    background: linear-gradient(to right, rgb(90, 46, 0), rgb(68, 43, 43), rgb(43, 0, 69));
+    padding: 80px 0;
+}  
+
+#calendar .alert{
+  color: #ffffff;
+  background: linear-gradient(to right, rgb(90, 46, 0), rgb(68, 43, 43), rgb(43, 0, 69));
+}
+
+#calendar form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgb(255, 255, 255);
+}
+  
+#calendar label {
+    font-weight: bold;
+    color: black;
+}
+  
+#calendar select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #c7c7c7;
+    background-size: 12px 6px;
+    background-position: calc(100% - 10px) center;
+    background-repeat: no-repeat;
+    border: none;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 8px;
+    width: 100%;
+}
+  
+  
+
+
+/*------------------------------------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------GLOBAL FOOTER-------------------------------------------------------*/
+#footer{
+background-color: #000;
+}
+#footer .footer_bottom{
+padding:10px 0;
+text-align:center;
+color:#ffffff;
+font-size:12.22px;
+}
+#footer .footer_bottom p{
+margin-bottom:0;
+font-size:14px;
+font-family: 'Alkatra', cursive;
+text-transform: uppercase;
+font-weight: bolder;
+animation: slide-horizontally 10s linear infinite;
+}
+
+@keyframes slide-horizontally {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(50px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------services, ABOUT, RESERVATION, CONTACT PAGE SUBBANNER AND ANIMATION--------------------------------------*/
+
+.section-sub-banner{
+    padding-top:80px;
+    background: linear-gradient(to bottom,#771515, rgb(68, 27, 27),#000000);
+      
+}
+.sub-banner{
+    position:relative;
+}
+.sub-banner .text{
+    padding-bottom:50px;
+}
+.sub-banner .text h2{
+    margin-top:70px;
+    margin-bottom:0;
+    color:#ffffff;
+    font-size:68px;
+    font-family:'Montserrat';
+    font-weight: bolder;
+    text-transform:uppercase;
+    animation: move-color 10s ease-in-out infinite;
+    text-shadow: #000000;
+}
+
+.sub-banner .text p{
+    margin-bottom:0;
+    color:#ffffff;
+    font-size:30px;
+    font-weight: bold;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+
+/*------------------------------SERVICES PAGE-----------------------------------------------------------------*/
+
+.services {
+    background: linear-gradient(to bottom,#72b6ff,#05046c, black );
+    overflow: hidden; 
+    position: relative;
+}
+
+.services-container {
+    overflow-x: hidden; 
+    white-space: nowrap;
+}
+
+.service {
+    position: relative;
+    display: inline-block;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+    width: 400px;
+    height: 500px;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 0.5s ease;
+  }
+  
+  .service:hover {
+    transform: scale(1.1);
+  }
+
+  .service .description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding-top: 80px;
+  }
+  .service:hover .description {
+    opacity: 2;
+  }
+  .service .description h2 {
+    text-transform: uppercase;
+    font-family: 'Alkatra', cursive;
+    font-family: 'Lobster', cursive;
+    color: rgb(158, 244, 255);
+    word-spacing: 7px;    
+  }
+  .service .description h2:hover{
+    color: white;
+  }
+  .service .description p {
+    margin-top: 20%;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-family: 'Alkatra', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'Sail', cursive;
+    word-spacing: 6px;
+  }
+
+.service .description a {
+  display: inline-block;
+  color: #fff;
+  margin-top: 10%;
+}
+.service .description a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.scroll-left,
+.scroll-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: #b7daff;
+}
+
+.scroll-left {
+    left: 10px;
+}
+
+.scroll-right {
+    right: 10px;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+  /*--------------------------------------------ABOUT PAGE---------------------------------------------*/
+  .about-us{
+    background: rgb(88, 57, 24);
+    margin-top: 30px;
+    margin-bottom: -40px;
+  }
+  .about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: -50px;
+
+  }
+  
+  .about-image {
+    width: 50%;
+    height: auto;
+  }
+  
+  .about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+  }
+  
+  .about-text {
+    width: 50%;
+    padding: 100px;
+  }
+  
+  .about-text h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    text-decoration: underline double rgb(104, 92, 92);
+  }
+  
+  .about-text p {
+    font-size: 18px;
+    line-height: 2.5;
+    margin-bottom: 20px;
+    animation: flicker 7s infinite;
+}
+
+@keyframes flicker {
+  0% {
+    color: #ffffff;
+  }
+  20% {
+    color: #f1cdaa;
+  }
+  40% {
+    color: #9e9e9e;
+  }
+  60% {
+    color: #ffffff;
+  }
+  80% {
+    color: #b5b5ff;
+  }
+  100% {
+    color: #000000;
+  }
+}
+  
+  
+
+.founders {
+    background: linear-gradient(to bottom,#593b16,#8e5f2c, rgb(45, 25, 104) );
+}
+.founders h2 {
+    color: rgb(255, 255, 255);
+    font-size: 70px;
+    font-weight: bolder;
+    text-align: center;
+    animation: move-color 10s ease-in-out infinite;
+    margin-top: 30px;
+    animation: flicker 9s infinite;
+
+}
+
+
+.members{
+    position: relative;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    width: 300px;
+    height: 500px;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 0.5s ease;
+}
+.members:hover {
+    transform: scale(1.1);
+}
+.members .description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding-top: 80px;
+}
+.members:hover .description {
+    opacity: 2;
+}
+.members .description h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(226, 222, 216);
+    font-size: 20px;
+}
+.members .description p span {
+    color: rgb(182, 182, 182);
+    font-size: 15px;
+}
+.members .description p {
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------CONTACT PAGE------------------------------------*/
+.contact-form {
+    margin-top: -20px;
+    margin-bottom: 1px;
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(169, 87, 0), rgb(39, 3, 83));
+  }
+.contact-form h2 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+form div {
+    margin-bottom: 1em;
+    width: 500px;
+}
+    
+form label {
+    display: block;
+    font-family: 'Alkatra', cursive;
+    margin-bottom: 0.5em;
+    color: white;
+}
+    
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    color: black;
+}
+    
+form textarea {
+    height: 8em;
+}
+    
+form button[type="submit"] {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 0.5em;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 300px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+    
+form button[type="submit"]:hover {
+    background-color: #fff;
+    color: #000000;
+}
+#map {
+    height: 500px;
+    margin-top: .4em;
+}
+  
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------CANCELLATION PAGE-------------------------------*/
+
+.section-cancel-reservation {
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(169, 87, 0), rgb(39, 3, 83));
+  padding: 64.5px;
+  height: auto;
+  }
+  
+  .section-cancel-reservation h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(175, 175, 175);
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+  
+  .section-cancel-reservation .alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    background: linear-gradient(to right, rgb(90, 46, 0), rgb(68, 43, 43), rgb(43, 0, 69));
+    border: 2px solid #ffffff;
+    border-radius: 7px;
+    width: 50%;
+    margin-left: 300px;
+  }
+  
+  .section-cancel-reservation form.cancel-form {
+    margin-top: 20px;
+  }
+  
+  .section-cancel-reservation label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .section-cancel-reservation input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+/*----------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------CHECK DETAILS PAGE-------------------------------*/
+  .section-reservation-details {
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(169, 87, 0), rgb(39, 3, 83));
+    padding: 55px;
+  }
+  .section-reservation-details .alert{
+    width: 50%;
+    background: linear-gradient(to right, rgb(90, 46, 0), rgb(68, 43, 43), rgb(43, 0, 69));
+    color: white;
+    font-weight: bolder;
+  }
+  .section-title {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(175, 175, 175);
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .reservation-form {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(255, 255, 255);
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .reservation-info {
+    margin-top: 20px;
+  }
+  
+  .reservation-info-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .reservation-info-item {
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+/*--------------------------------------------- RATING ---------------------------------------------*/
+.section-rating {
+  text-align: center;
+  padding: 50px 0;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(169, 87, 0), rgb(39, 3, 83));
+}
+
+.section-rating h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.section-rating p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* .form-group {
+  margin-bottom: 20px;
+} */
+
+/* .form-control {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #000000;
+  border-radius: 2px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 95px rgba(1, 9, 84, 0.5);
+} */
+
+/*----------------------------------------- THANK YOU -----------------------------------------*/
+
+.section-thank-you {
+  padding: 117px;
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(169, 87, 0), rgb(39, 3, 83));
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.section-thank-you h1 {
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+.section-thank-you p {
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------REPORT A CRIME PAGE---------------------------------------------------------- */
+
+#crime {
+  background: linear-gradient(to bottom, rgb(0, 166, 255), rgb(4, 71, 255), rgb(145, 213, 255));
+  overflow: hidden; 
+  /* position: relative; */
+}
+
+.report-crime {
+  margin-top: -60px;
+  margin-bottom: 1px;
+}
+.report-crime h2 {
+  text-align: center;
+  color: white;
+  font-family: 'Alkatra', cursive;
+  font-size: 40px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  animation: flicker 7s infinite;
+}
+
+@keyframes flicker {
+  0% {
+    color: #ffffff;
+  }
+  25% {
+    color: #000000;
+  }
+  50% {
+    color: #0011ff;
+  }
+  75% {
+    color: #5bbdff;
+  }
+}
+
+.report-crime form {
+  margin-top: 186px;
+}
+
+#crime .alert{
+  color: #ffffff;
+  background: linear-gradient(to right, rgb(7, 1, 95), rgb(43, 72, 214), rgb(73, 164, 255));
+  font-family: 'Libre Baskerville', serif;
+  font-family: 'Lilita One', cursive;
+  font-size: 16px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #000000;
+  border-radius: 2px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 95px rgba(1, 9, 84, 0.5);
+}
