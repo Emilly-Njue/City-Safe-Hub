@@ -22,3 +22,7 @@ Route::get('/', function () {
 
 // Service page
 Route::get('services', [ServiceController::class, 'service'])->name('services');
+
+// In routes/web.php
+Route::get('report_crime', [CrimeReportController::class, 'reportcrime'])->name('crime-report');
+Route::post('report_crime', [CrimeReportController::class, 'store'])->name('crime-report.store');

@@ -54,7 +54,7 @@
                                 <li><a href="{{ Route('services') }}">Services</a></li>
 
                                 @if(Session::has('customerlogin'))
-                                    <li><a href="{{ Route('reservation') }}">Report a Crime</a></li>
+                                    <li><a href="{{ Route('crime-report') }}">Report a Crime</a></li>
                                     <li><a href="{{ Route('booking.viewDetails') }}">Details</a></li>
                                     <!-- <li><a href="{{ Route('cancel-reservation') }}">Cancel</a></li> -->
                                     <li><a href="{{ url('logout') }}">Logout</a></li>
