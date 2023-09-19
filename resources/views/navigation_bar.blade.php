@@ -37,49 +37,22 @@
 
             <!-- HEADER -->
             <header id="header" class="header-v2">
-
-                <!-- HEADER LOGO & MENU -->
                 <div class="header_content">
                     <div class="container">
-                        <!-- HEADER LOGO
-                        <div class="header_logo">
-                            <a href="#"><img src="{{ asset('images/e&m_logo2.png') }}" alt=""></a>
-                        </div> -->
-                        
-                        <!-- HEADER MENU -->
                         <nav class="header_menu">
 
                             <ul class="menu">
                                 <li><a href="/">Home</a></li>
                                 <li><a href="{{ Route('services') }}">Services</a></li>
-
-                                @if(Session::has('customerlogin'))
-                                    <li><a href="{{ Route('crime-report') }}">Report a Crime</a></li>
-                                    <li><a href="{{ Route('booking.viewDetails') }}">Details</a></li>
-                                    <!-- <li><a href="{{ Route('cancel-reservation') }}">Cancel</a></li> -->
-                                    <li><a href="{{ url('logout') }}">Logout</a></li>
-                                @else
-                                    <li><a href="#" onclick="showLoginNotification()">Report a Crime</a></li>
-                                    <li><a href="#" onclick="showLoginNotification()">Details</a></li>
-                                    <!-- <li><a href="#" onclick="showLoginNotification()">Cancel</a></li> -->
-                                    <li><a href="{{ url('login') }}">Login</a></li>
-                                    <li><a href="{{ url('register') }}">Register</a></li>
-                                @endif
-                                <script>
-                                    function showLoginNotification() {
-                                        alert("Please log in or register to access this feature.");
-                                        window.location.href = "{{ url('login') }}";
-                                    }
-                                </script>
-                                <li><a href="{{ Route('about') }}">About</a></li>
-                                <li><a href="{{ Route('contact') }}">Contact</a></li>
-                                <li><a href="{{ Route('admin') }}">Admin</a></li>
+                                <li><a href="{{ Route('crime-report') }}">Report a Crime</a></li>
+                                <li><a href="#" >Check Progress</a></li>
+                                <li><a href="">About</a></li>
+                                <li><a href="">Contact</a></li>
+                                <li><a href="">Admin</a></li>                           
                             </ul>
                         </nav>
-                        <!-- END / HEADER MENU -->
                     </div>
                 </div>
-                    <!-- END / HEADER LOGO & MENU -->
             </header>
             <!-- END / HEADER -->
 
@@ -114,7 +87,7 @@
 
 
         </div>
-                    <!-- FOOTER -->
+            <!-- FOOTER -->
             <footer id="footer">
                 <div class="footer_bottom">
                     <div class="container">

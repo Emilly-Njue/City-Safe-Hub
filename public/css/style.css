@@ -231,10 +231,9 @@
    .header_content .menu>li>a{
     font-family: 'Alkatra', cursive;
     display:block;
-    padding:0 20px;
+    padding:0 30px;
     line-height:24px;
     color:#ffffff;
-    font-weight:500;
     text-transform:uppercase;
     font-size:13.45px;
     text-decoration: none;
@@ -242,17 +241,6 @@
     .header_content .menu>li:hover>a{
         background-color:#493017;
         color:#fff;
-    }
-    .header_logo{
-        float:left;
-        line-height:100px;
-        display: flex;
-    }
-    .header_logo img{
-        max-height:43px;
-        width: 60px;
-        height: 100px;
-        margin-top: -50px;
     }
 
 /*----------------------------------------------OWL CAROUSEL SLIDER----------------------------------------------*/
