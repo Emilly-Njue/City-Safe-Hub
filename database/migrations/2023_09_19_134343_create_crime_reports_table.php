@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('crime_reports', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
+            $table->string('crime_type');
+            $table->text('description');
+            $table->string('location');
+            $table->string('random_code')->unique();
             $table->timestamps();
         });
     }
