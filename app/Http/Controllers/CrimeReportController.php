@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\CrimeReport;
+use App\Models\ReportCrimes;
 use Illuminate\Support\Str;
 use Mail;
 
@@ -21,6 +21,8 @@ class CrimeReportController extends Controller
         // Validate the form data (you can add more validation rules)
         $request->validate([
             'email' => 'required|email',
+            'role' => 'required', 
+            'gender' => 'required',
             'title' => 'required',
             'description' => 'required',
             'location' => 'required',
@@ -30,12 +32,14 @@ class CrimeReportController extends Controller
         $randomCode = Str::random(5);
     
         // Store the report in the database
-        $data = new CrimeReport;
+        $data = new ReportCrimes;
         $data->email = $request->email;
         $data->crime_type = $request->title;
         $data->description = $request->description;
         $data->location = $request->location;
         $data->random_code = $randomCode;
+        $data->role = $request->role;
+        $data->gender = $request->gender;
         $data->save();
 
         // sending the email to user
@@ -53,7 +57,7 @@ class CrimeReportController extends Controller
         Mail::send([], [], function ($message) use ($adminEmail, $data) {
             $message->to($adminEmail)
                 ->subject('New Crime Report')
-                ->text("A new report has been made.\n\nWitness/Victim's email: {$data->email}\n\nCrime: {$data->crime_type}\n\nCrime description: {$data->description}\n\nThe location of the crime: {$data->location}\n\nCrime report code: {$data->random_code}");
+                ->text("A new report has been made.\nWitness/Victim's email: {$data->email}\nWitness/Victim: {$data->role}\nGender: {$data->gender}\nCrime: {$data->crime_type}\nCrime description: {$data->description}\nThe location of the crime: {$data->location}\nCrime report code: {$data->random_code}");
         });
        
         // Redirect back to the report crime page and display the success message

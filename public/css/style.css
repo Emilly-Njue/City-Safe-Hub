@@ -877,7 +877,6 @@ form button[type="submit"]:hover {
 #crime {
   background: linear-gradient(to bottom, rgb(0, 166, 255), rgb(4, 71, 255), rgb(145, 213, 255));
   overflow: hidden; 
-  /* position: relative; */
 }
 
 .report-crime {
@@ -889,11 +888,10 @@ form button[type="submit"]:hover {
   color: white;
   font-family: 'Alkatra', cursive;
   font-size: 40px;
-  margin-top: -50px;
+  margin-top: 10px;
   text-transform: uppercase;
   animation: flicker 7s infinite;
 }
-
 @keyframes flicker {
   0% {
     color: #ffffff;

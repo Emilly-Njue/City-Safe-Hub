@@ -3,8 +3,6 @@
     <section id="crime">
 
         <div class="report-crime">
-
-
             <form method="POST" action="{{ route('crime-report.store') }}">
                 @csrf
                 <h2>Report a Crime</h2>
@@ -16,14 +14,15 @@
 
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email"  required placeholder="ENTER YOUR EMAIL" required>
+                    <input type="email" id="email" name="email" placeholder="ENTER YOUR EMAIL" required>
                 </div>
+                
                 <div class="form-group">
                     <label for="role">Are you a victim or a witness?</label>
-                    <select name="gender" id="gender" class="form-control" required>
+                    <select name="role" id="role" class="form-control" required>
                         <option value="" disabled selected>Choose one</option>
-                        <option value="Assault">Victim</option>
-                        <option value="Assault">Witness</option>
+                        <option value="Victim">Victim</option>
+                        <option value="Witness">Witness</option>
                     </select>
                 </div>
 
@@ -31,9 +30,9 @@
                     <label for="gender">Gender:</label>
                     <select name="gender" id="gender" class="form-control" required>
                         <option value="" disabled selected>Choose gender</option>
-                        <option value="Assault">Male</option>
-                        <option value="Assault">Female</option>
-                        <option value="Assault">Don't Want to say</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
