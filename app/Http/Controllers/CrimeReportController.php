@@ -44,7 +44,7 @@ class CrimeReportController extends Controller
 
         // sending the email to user
         $userEmail = $data->email;
-        $Message = "HELLO. \n\nThank you for reporting the crime on City-Safe Hub. Your contribution to community safety is greatly appreciated.\nYour crime report code is: $randomCode. \nUse this code to check on the investigation progress. \n\nWarm regards,\nCITY-SAFE HUB.";
+        $Message = "HELLO. \n\nThank you for reporting the crime on City-Safe Hub. Your contribution to community safety is greatly appreciated.\nYour crime report reference code is: $randomCode. \nUse this code to check on the investigation progress. \n\nWarm regards,\nCITY-SAFE HUB.";
         
         Mail::send([], [], function ($message) use ($userEmail, $Message) {
             $message->to($userEmail)
@@ -57,7 +57,7 @@ class CrimeReportController extends Controller
         Mail::send([], [], function ($message) use ($adminEmail, $data) {
             $message->to($adminEmail)
                 ->subject('New Crime Report')
-                ->text("A new report has been made.\nWitness/Victim's email: {$data->email}\nWitness/Victim: {$data->role}\nGender: {$data->gender}\nCrime: {$data->crime_type}\nCrime description: {$data->description}\nThe location of the crime: {$data->location}\nCrime report code: {$data->random_code}");
+                ->text("A new report has been made.\nWitness/Victim's email: {$data->email}\nWitness/Victim: {$data->role}\nGender: {$data->gender}\nCrime: {$data->crime_type}\nCrime description: {$data->description}\nThe location of the crime: {$data->location}\nCrime report reference code: {$data->random_code}");
         });
        
         // Redirect back to the report crime page and display the success message
