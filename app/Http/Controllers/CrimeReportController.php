@@ -40,6 +40,10 @@ class CrimeReportController extends Controller
         $data->random_code = $randomCode;
         $data->role = $request->role;
         $data->gender = $request->gender;
+
+        // Set the 'status' field to 'not assigned'
+        $data->status = 'no officer assigned';
+
         $data->save();
 
         // sending the email to user
