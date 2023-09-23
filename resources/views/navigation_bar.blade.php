@@ -48,7 +48,7 @@
                                 <li><a href="#" >Check Progress</a></li>
                                 <li><a href="">About</a></li>
                                 <li><a href="">Contact</a></li>
-                                <li><a href="">Admin</a></li>                           
+                                <li><a href="{{ Route('admin') }}">Admin</a></li>                           
                             </ul>
                         </nav>
                     </div>

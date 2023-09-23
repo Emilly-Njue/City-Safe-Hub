@@ -10,6 +10,11 @@ use Cookie;
 
 class AdminController extends Controller
 {
+    public function admin()
+    {
+        return view ('admin');
+    }
+
     function login()
     {
         return view ('login');
