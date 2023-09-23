@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CrimeReportController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -27,3 +28,9 @@ Route::get('services', [ServiceController::class, 'service'])->name('services');
 // report a crime page
 Route::get('report_crime', [CrimeReportController::class, 'reportcrime'])->name('crime-report');
 Route::post('report_crime', [CrimeReportController::class, 'store'])->name('crime-report.store');
+
+// Admin
+Route::get('admin', [AdminController::class, 'admin'])->name('admin');
+Route::get('admin/login', [AdminController::class, 'login']);
+Route::post('admin/login', [AdminController::class, 'check_login']);
+Route::get('admin/logout', [AdminController::class, 'logout']);

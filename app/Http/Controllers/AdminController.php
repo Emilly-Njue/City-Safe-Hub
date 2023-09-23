@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Admin;
 use App\Models\ReportCrimes;
+use Cookie;
 
 class AdminController extends Controller
 {
