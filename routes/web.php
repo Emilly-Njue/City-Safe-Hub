@@ -5,6 +5,8 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CrimeReportController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AddOfficerController;
+use App\Http\Controllers\OfficerController;
+
 
 
 
@@ -37,5 +39,10 @@ Route::get('admin/login', [AdminController::class, 'login']);
 Route::post('admin/login', [AdminController::class, 'check_login']);
 Route::get('admin/logout', [AdminController::class, 'logout']);
 
+// Add Officers
 Route::get('admin/add_officers/{id}/delete', [AddOfficerController::class, 'destroy']);
 Route::resource('admin/add_officers', AddOfficerController::class);
+
+// Officers
+Route::get('admin/officers/{id}/delete', [OfficerController::class, 'destroy']);
+Route::resource('admin/officers', OfficerController::class);
