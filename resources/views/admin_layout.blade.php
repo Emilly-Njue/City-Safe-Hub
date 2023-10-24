@@ -78,7 +78,7 @@
                 <div id="collapseTwo" class="collapse @if(request()->is('admin/add_officers*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ url('admin/add_officers/create') }}">Add New</a>
-                        <a class="collapse-item" href="{{ url('add_officers.index') }}">View All</a>
+                        <a class="collapse-item" href="{{ url('admin/add_officers') }}">View All</a>
                     </div>
                 </div>
             </li>
