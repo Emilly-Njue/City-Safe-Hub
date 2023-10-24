@@ -15,16 +15,16 @@
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                        <th>Title</th>
-                        <td>{{$data->title}}</td>
+                        <th>Name</th>
+                        <td>{{$officer->name}}</td>
                     </tr>
                     <tr>
-                        <th>Price</th>
-                        <td>{{$data->price}}</td>
+                        <th>Badge Number</th>
+                        <td>{{$officer->badge_number}}</td>
                     </tr>
                     <tr>
-                        <th>Detail</th>
-                        <td>{{$data->detail}}</td>
+                        <th>Rank</th>
+                        <td>{{$officer->rank}}</td>
                     </tr>
                 </table>
             </div>
