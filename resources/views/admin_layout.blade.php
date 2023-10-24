@@ -41,7 +41,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">E & M Admin</div>
+                <div class="sidebar-brand-text mx-3">CITY-SAFE HUB</div>
             </a>
 
             <!-- Divider -->
@@ -51,7 +51,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>E & M</span></a>
+                    <span>CITY-SAFE HUB</span></a>
             </li>
 
             <li class="nav-item">
@@ -70,18 +70,19 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link @if( !request()->is('admin/roomtype*')) collapsed @endif" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link @if(request()->is('admin/add_officers*')) active @endif" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Room Types</span>
+                    <span>Add Officers</span>
                 </a>
-                <div id="collapseTwo" class="collapse @if( request()->is('admin/roomtype*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse @if(request()->is('admin/add_officers*')) show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{url('admin/roomtype/create')}}">Add New</a>
-                        <a class="collapse-item" href="{{url('admin/roomtype')}}">View All</a>
+                        <a class="collapse-item" href="{{ url('add_officers.create') }}">Add New</a>
+                        <a class="collapse-item" href="{{ url('add_officers.index') }}">View All</a>
                     </div>
                 </div>
             </li>
+
 
 
             <!-- RoomMaster -->
@@ -207,7 +208,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; E & M HOTEL 2023</span>
+                        <span>Copyright &copy; CITY-SAFE HUB 2024</span>
                     </div>
                 </div>
             </footer>
