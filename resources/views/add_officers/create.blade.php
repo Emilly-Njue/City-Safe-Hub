@@ -36,7 +36,19 @@
                         </tr>
                         <tr>
                             <th>Rank</th>
-                            <td><textarea name="detail" class ="form-control"></textarea></td>
+                            <td>
+                                <select name="rank" class="form-control">
+                                    <option value="">Select Rank</option>
+                                    <option value="Officer/Constable">Officer/Constable</option>
+                                    <option value="Sergeant">Sergeant</option>
+                                    <option value="Inspector">Inspector</option>
+                                    <option value="Lieutenant">Lieutenant</option>
+                                    <option value="Corporal">Corporal</option>
+                                    <option value="Detective">Detective</option>
+                                    <option value="Deputy Chief">Deputy Chief</option>
+                                    <option value="Assistant Chief">Assistant Chief</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="2">

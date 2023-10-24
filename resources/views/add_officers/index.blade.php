@@ -23,6 +23,8 @@
                         <th>Name</th>
                         <th>Badge Number</th>
                         <th>Rank</th>
+                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tfoot>
@@ -31,6 +33,8 @@
                         <th>Name</th>
                         <th>Badge Number</th>
                         <th>Rank</th>
+                        <th>Action</th>
+
                     </tr>
                 </tfoot>
                 <tbody>
@@ -40,6 +44,8 @@
                             <td>{{$d->id}}</td>
                             <td>{{$d->name}}</td>
                             <td>{{$d->badge_number}}</td>
+                            <td>{{$d->rank}}</td>
+
                             <td>
                                 <a href="{{url('admin/add_officers/'.$d->id)}}" class="btn btn-info btn-sm"><i class= "fa fa-eye"></i></a>
                                 <a href="{{url('admin/add_officers/'.$d->id.'/edit')}}" class="btn btn-primary btn-sm"><i class= "fa fa-edit"></i></a>
