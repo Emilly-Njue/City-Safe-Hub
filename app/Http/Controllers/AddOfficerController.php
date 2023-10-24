@@ -62,7 +62,7 @@ class AddOfficerController extends Controller
         $officer->rank = $request->rank;
         $officer->save();
 
-        return redirect()->route('add_officers.edit', ['id' => $id])->with('success', 'Officer data has been updated.');
+        return redirect('admin/add_officers/'.$id.'/edit')->with('success', 'Officer data has been updated.');
     }
 
     public function destroy($id)
