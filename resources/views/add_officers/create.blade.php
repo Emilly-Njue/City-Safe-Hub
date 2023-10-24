@@ -23,7 +23,7 @@
                 <p class="text-success">{{session('success')}}</p>
             @endif
             <div class="table-responsive">
-                <form enctype="multipart/form-data" method="post" action="{{url('add_officers.store')}}">
+                <form enctype="multipart/form-data" method="post" action="{{url('admin/add_officers')}}">
                     @csrf
                     <table class="table table-bordered">
                         <tr>
@@ -47,9 +47,8 @@
                 </form>
             </div>
         </div>
-</div>
+    </div>
 
 </div>
 <!-- /.container-fluid -->
-
 @endsection

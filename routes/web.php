@@ -37,5 +37,5 @@ Route::get('admin/login', [AdminController::class, 'login']);
 Route::post('admin/login', [AdminController::class, 'check_login']);
 Route::get('admin/logout', [AdminController::class, 'logout']);
 
-Route::get('admin/addofficers/{id}/delete', [AddOfficerController::class, 'destroy']);
+Route::get('admin/add_officers/{id}/delete', [AddOfficerController::class, 'destroy']);
 Route::resource('admin/add_officers', AddOfficerController::class);
