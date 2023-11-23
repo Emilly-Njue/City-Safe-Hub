@@ -31,8 +31,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>About</th>
-                            <td><textarea name="rank" class="form-control" rows="4"></textarea></td>
+                            <th>Description</th>
+                            <td><textarea name="description" class="form-control" rows="4"></textarea></td>
                         </tr>
                         <tr>
                             <th>Image 1</th>

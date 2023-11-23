@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>E & M Admin</title>
+    <title>City-Safe Hub Admin</title>
     
     @if(!Session::has('adminData'))
         <script type="text/javascript">

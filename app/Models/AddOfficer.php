@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AddOfficer extends Model
 {
-    use HasFactory;
+    public function officers()
+    {
+        return $this->hasMany(Officer::class, 'officer_id', 'id');
+    }
 }

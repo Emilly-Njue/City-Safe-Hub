@@ -17,8 +17,13 @@ class OfficerController extends Controller
          */
         public function index()
         {
-            $data=Officer::all();
-            return view ('officers.index', ['data'=>$data]);
+            // $data=Officer::all();
+            // return view ('officers.index', ['data'=>$data]);
+
+            // Eager load the 'officer' relationship to ensure it's always loaded
+            $data = Officer::with('addOfficer')->get();
+
+            return view('officers.index', ['data' => $data]);
         }
     
         /**
@@ -36,9 +41,14 @@ class OfficerController extends Controller
         public function store(Request $request)
         {
             $data=new Officer;
-            $data->officer_id=$request->of_id;
-            $data->name=$request->name;
-            $data->rank = $request->rank; 
+            // $data->officer_id=$request->of_id;
+            // $data->name=$request->name;
+            $data->officer_id = $request->of_id;
+
+            // Fetch the name based on the selected 'of_id'
+            $selectedOfficer = AddOfficer::find($request->of_id);
+            $data->name = $selectedOfficer->name;
+            $data->description = $request->description; 
     
             // Handle image uploads
             if ($request->hasFile('images')) {
@@ -53,7 +63,7 @@ class OfficerController extends Controller
     
             $data->save();
     
-            return redirect('admin/rooms/create')->with('success', 'Data has been added.');
+            return redirect('admin/officers/create')->with('success', 'Data has been added.');
         }
     
         /**
@@ -83,22 +93,28 @@ class OfficerController extends Controller
          */
         public function update(Request $request, string $id)
         {
-            $data=Officer::find($id);
-            $data->officer_id=$request->of_id;
-            $data->name=$request->name;
-            $data->rank = $request->rank; 
-    
+            $data = Officer::find($id);
+            $data->officer_id = $request->of_id;
+
+            // Fetch the name based on the selected 'of_id'
+            $selectedOfficer = AddOfficer::find($request->of_id);
+            $data->name = $selectedOfficer->name;
+
+            // Update the description
+            $data->description = $request->description;
+
             $data->save();
-    
+
             return redirect('admin/officers/'.$id.'/edit')->with('success', 'Officer Data Has Been Updated.');
         }
+
     
         /**
          * Remove the specified resource from storage.
          */
         public function destroy(string $id)
         {
-            Room::where('id', $id)->delete();
+            Officer::where('id', $id)->delete();
             return redirect('admin/officers/')->with('success', 'Officer Data Has Been Deleted.');
         }
     }

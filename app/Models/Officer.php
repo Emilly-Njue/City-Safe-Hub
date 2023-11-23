@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Officer extends Model
 {
-    use HasFactory;
-    function AddOfficer(){
-        return $this->belongsTo(AddOfficer::class, 'officer_id');
+    public function addOfficer()
+    {
+        return $this->belongsTo(AddOfficer::class, 'officer_id', 'id');
     }
+    
 }
