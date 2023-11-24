@@ -21,28 +21,20 @@
                     <tr>
                         <th>#</th>
                         <th>Officer</th>
+                        <th>Email</th>
                         <th>Rank</th>
-                        <th>Badge Number</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>Officer</th>
-                        <th>Rank</th>
-                        <th>Badge Number</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
+
                 <tbody>
                     @if($data)
                         @foreach($data as $d)
                         <tr>
                             <td>{{$d->id}}</td>
                             <td>{{$d->addOfficer->name}}</td>
+                            <td>{{$d->addOfficer->email}}</td>
                             <td>{{$d->addOfficer->rank}}</td>
-                            <td>{{$d->addOfficer->badge_number}}</td>
                             <td>
                                 <a href="{{url('admin/officers/'.$d->id)}}" class="btn btn-info btn-sm"><i class= "fa fa-eye"></i></a>
                                 <a href="{{url('admin/officers/'.$d->id.'/edit')}}" class="btn btn-primary btn-sm"><i class= "fa fa-edit"></i></a>

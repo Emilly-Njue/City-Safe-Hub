@@ -135,10 +135,19 @@ class CrimeReportController extends Controller
             $adminEmail = 'city.safe.hub@gmail.com'; 
             Mail::send([], [], function ($message) use ($adminEmail, $report, $officer) {
                 $message->to($adminEmail)
-                    ->subject('New Crime Report Assigned')
+                    ->subject('NEW CRIME REPORT ASSIGNED')
                     ->text("A new report has been made.\nWitness/Victim's email: {$report->email}\n\nWitness/Victim: {$report->role}\nCrime: {$report->crime_type}\nCrime description: {$report->description}\nThe location of the crime: {$report->location}\nCrime report reference code: {$report->random_code}\n\nAssigned to Officer: {$officer->name}");
             });
 
+            // sending the email to the assigned officer
+            $officerEmail = $officer->email; 
+            $Message = "HELLO Officer{$officer->name}. \n\nA new crime report has been assigned to you on City-Safe Hub. \n\nWitness/Victim's email: {$report->email}\nWitness/Victim: {$report->role}\nCrime: {$report->crime_type}\nCrime description: {$report->description}\nThe location of the crime: {$report->location}\nCrime report reference code: {$report->random_code}";
+
+            Mail::send([], [], function ($message) use ($officerEmail, $Message) {
+                $message->to($officerEmail)
+                    ->subject('CASE ASSIGNED TO YOU.')
+                    ->text($Message);
+            });
 
             return redirect()->back()->with('success', 'Case assigned to ' . $officer->name);
         }
