@@ -155,4 +155,74 @@ class CrimeReportController extends Controller
         return redirect()->back()->with('error', 'Case is already assigned');
     }
 
+    public function completeInvestigation($id)
+    {
+        $report = ReportCrimes::findOrFail($id);
+
+        // Check if the status is 'Assigned to Officer:'
+        if (strpos($report->status, 'Assigned to Officer:') !== false) {
+            // Update the report status to 'Investigation completed'
+            $report->status = 'Investigation completed';
+            $report->save();
+
+            // sending the email to user
+            $userEmail = $report->email; 
+            $Message = "HELLO. \n\nThe investigation on your crime report REF:{$report->random_code} on City-Safe Hub has been completed. The officer in-charge was officer {$officer->name} \n\nWarm regards,\nCITY-SAFE HUB.";
+
+            Mail::send([], [], function ($message) use ($userEmail, $Message) {
+                $message->to($userEmail)
+                    ->subject('INVESTIGATION COMPLETED')
+                    ->text($Message);
+            });
+
+            // Send email notification to the admin
+            $adminEmail = 'city.safe.hub@gmail.com'; 
+            Mail::send([], [], function ($message) use ($adminEmail, $report) {
+                $message->to($adminEmail)
+                    ->subject('Investigation Completed')
+                    ->text("The investigation on the crime report with REF: {$report->random_code} has been completed.");
+            });
+
+            return redirect()->back()->with('success', 'Investigation completed for case ID ' . $report->random_code);
+        }
+
+        return redirect()->back()->with('error', 'Case is not assigned to an officer');
+    }
+
+    public function inconclusiveInvestigation($id)
+    {
+        $report = ReportCrimes::findOrFail($id);
+
+        // Check if the status is 'Assigned to Officer:'
+        if (strpos($report->status, 'Assigned to Officer:') !== false) {
+            // Update the report status to 'Investigation inconclusive'
+            $report->status = 'Investigation inconclusive';
+            $report->save();
+
+            // sending the email to user
+            $userEmail = $report->email; 
+            $Message = "HELLO. \n\nWe regret to inform you that the investigation into your crime report REF: {$report->random_code} has reached an inconclusive outcome. We apologize for any inconvenience this may cause. \n\nWe will continue to monitor the situation and reopen the investigation if new evidence emerges. \n\nPlease remain vigilant and take appropriate precautions. \n\nWarm regards,\nCITY-SAFE HUB.";
+
+            Mail::send([], [], function ($message) use ($userEmail, $Message) {
+                $message->to($userEmail)
+                    ->subject('Investigation Inconclusive')
+                    ->text($Message);
+            });
+
+            // Send email notification to the admin
+            $adminEmail = 'city.safe.hub@gmail.com'; 
+            Mail::send([], [], function ($message) use ($adminEmail, $report) {
+                $message->to($adminEmail)
+                    ->subject('Investigation Inconclusive')
+                    ->text("The investigation on the crime report with REF: {$report->random_code} was inconclusive.");
+            });
+
+            return redirect()->back()->with('success', 'Investigation inconclusive for case ID ' . $report->random_code);
+        }
+
+        return redirect()->back()->with('error', 'Case is not assigned to an officer');
+    }
+
+
+
 }

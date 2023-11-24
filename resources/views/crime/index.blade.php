@@ -33,7 +33,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>REF</th>
                                 <th>Role</th>
                                 <th>Gender</th>
                                 <th>Crime Type</th>
@@ -46,7 +46,7 @@
                         <tbody>
                             @foreach($data as $report)
                                 <tr>
-                                    <td>{{ $report->id }}</td>
+                                    <td>{{ $report->random_code }}</td>
                                     <td>{{ $report->role }}</td>
                                     <td>{{ $report->gender }}</td>
                                     <td>{{ $report->crime_type }}</td>
@@ -60,6 +60,12 @@
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#assignModal{{$report->id}}" title="Assign Officer">
                                             <i class="fa fa-tasks"></i>
                                         </button>
+                                        <a href="{{ url('admin/crime/' . $report->id . '/complete-investigation') }}" class="btn btn-success btn-sm" title="Investigation Completed">
+                                            <i class="fa fa-check-square-o"></i>
+                                        </a>
+                                        <a href="{{ url('admin/crime/' . $report->id . '/inconclusive-investigation') }}" class="btn btn-danger btn-sm" title="Inconclusive Investigation">
+                                            <i class="fa fa-ban"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 <!-- Assign Officer Modal -->

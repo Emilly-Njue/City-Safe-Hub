@@ -57,3 +57,8 @@ Route::post('admin/crime/{id}/assign', [CrimeReportController::class, 'assignOff
 
 // Reporting a crime on the admin side
 Route::post('admin/crime/store', [CrimeReportController::class, 'store'])->name('admin.crime.store');
+
+// For investigation completion
+Route::get('admin/crime/{id}/complete-investigation', [CrimeReportController::class, 'completeInvestigation']);
+
+Route::get('admin/crime/{id}/inconclusive-investigation', [CrimeReportController::class, 'inconclusiveInvestigation']);
