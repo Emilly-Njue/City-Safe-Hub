@@ -101,7 +101,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url('admin/booking')}}">
+                <a class="nav-link" href="{{url('admin/crime')}}">
                     <i class="fas fa-hotel"></i>
                     <span>Reported Crimes</span>
                 </a>

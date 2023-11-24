@@ -48,3 +48,9 @@ Route::get('admin/officers/{id}/delete', [OfficerController::class, 'destroy']);
 Route::resource('admin/officers', OfficerController::class);
 
 // Report Crime(Admin)
+Route::get('admin/crime/{id}/delete', [CrimeReportController::class, 'destroy']);
+Route::resource('admin/crime', CrimeReportController::class);
+
+// Assign Officer to Crime
+Route::post('admin/crime/assign-officer/{id}', [CrimeReportController::class, 'assignOfficer']);
+Route::post('admin/crime/{id}/assign', [CrimeReportController::class, 'assignOfficer'])->name('crime.assign');

@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ReportCrimes;
+use App\Models\AddOfficer;
+use App\Models\Officer;
+use Dompdf\Dompdf;
+use PDF; 
+
 use Illuminate\Support\Str;
 use Mail;
 
@@ -15,6 +20,23 @@ class CrimeReportController extends Controller
     {
         return view('report_crime');
     }
+
+    public function index()
+    {
+        // $data = ReportCrimes::all();
+        // return view('crime.index', ['data' => $data]);
+
+        $data = ReportCrimes::all();
+        $officers = AddOfficer::all(); // Fetch the list of officers
+
+        return view('crime.index', ['data' => $data, 'officers' => $officers]);
+    }
+
+    public function create()
+    {
+        return view('crime.create');
+    }
+
 
     public function store(Request $request)
     {
@@ -65,6 +87,44 @@ class CrimeReportController extends Controller
         });
        
         // Redirect back to the report crime page and display the success message
+        if($request->ref=='front'){
         return redirect('report_crime')->with('success', 'Report submitted successfully! Your crime report code has been sent to your email.');
-    } 
+        }
+
+        return redirect('admin/crime/create')->with('success', 'Reported crime has been recorded.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        ReportCrimes::where('id',$id)->delete();
+        return redirect('admin/crime')->with('success','Crime report has been deleted.');
+    }
+
+    public function assignOfficer(Request $request, $id)
+{
+    $report = ReportCrimes::findOrFail($id);
+
+    // Check if the status is 'no officer assigned'
+    if ($report->status == 'no officer assigned') {
+        // Validate the form data
+        $request->validate([
+            'officer_id' => 'required|exists:add_officers,id',
+        ]);
+
+        // Fetch the officer details
+        $officer = AddOfficer::find($request->officer_id);
+
+        // Update the report status with the officer's name
+        $report->status = 'Assigned to Officer: ' . $officer->name;
+        $report->save();
+
+        return redirect()->back()->with('success', 'Case assigned to ' . $officer->name);
+    }
+
+    return redirect()->back()->with('error', 'Case is already assigned');
+}
+
 }
