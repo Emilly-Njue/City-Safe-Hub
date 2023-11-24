@@ -37,6 +37,12 @@ class CrimeReportController extends Controller
         return view('crime.create');
     }
 
+    public function show($id)
+    {
+        // Your logic here, or leave it empty if not needed.
+    }
+
+
 
     public function store(Request $request)
     {
@@ -223,6 +229,27 @@ class CrimeReportController extends Controller
         return redirect()->back()->with('error', 'Case is not assigned to an officer');
     }
 
+    public function generateReport()
+    {
+        // Retrieve crime reports data
+        $reports = ReportCrimes::all();
 
+        // Pass the data to the report view
+        $html = view('crime_report_pdf', compact('reports'))->render();
 
+        // Generate the PDF using Dompdf
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+
+        // Generate a unique filename for the PDF
+        $filename = 'Crime_Reports' . '.pdf';
+
+        // Save the PDF to the storage path
+        $pdfPath = storage_path('app/' . $filename);
+        file_put_contents($pdfPath, $dompdf->output());
+
+        // Return the PDF as a response or download it
+        return response()->download($pdfPath, $filename);
+    }
 }

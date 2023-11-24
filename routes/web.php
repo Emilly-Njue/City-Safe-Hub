@@ -62,3 +62,8 @@ Route::post('admin/crime/store', [CrimeReportController::class, 'store'])->name(
 Route::get('admin/crime/{id}/complete-investigation', [CrimeReportController::class, 'completeInvestigation']);
 
 Route::get('admin/crime/{id}/inconclusive-investigation', [CrimeReportController::class, 'inconclusiveInvestigation']);
+
+
+// Generate Report
+Route::get('admin/generate-report', [CrimeReportController::class, 'generateReport'])->name('admin.generateReport');
+
