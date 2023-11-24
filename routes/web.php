@@ -46,3 +46,5 @@ Route::resource('admin/add_officers', AddOfficerController::class);
 // Officers
 Route::get('admin/officers/{id}/delete', [OfficerController::class, 'destroy']);
 Route::resource('admin/officers', OfficerController::class);
+
+// Report Crime(Admin)
