@@ -104,27 +104,27 @@ class CrimeReportController extends Controller
     }
 
     public function assignOfficer(Request $request, $id)
-{
-    $report = ReportCrimes::findOrFail($id);
+    {
+        $report = ReportCrimes::findOrFail($id);
 
-    // Check if the status is 'no officer assigned'
-    if ($report->status == 'no officer assigned') {
-        // Validate the form data
-        $request->validate([
-            'officer_id' => 'required|exists:add_officers,id',
-        ]);
+        // Check if the status is 'no officer assigned'
+        if ($report->status == 'no officer assigned') {
+            // Validate the form data
+            $request->validate([
+                'officer_id' => 'required|exists:add_officers,id',
+            ]);
 
-        // Fetch the officer details
-        $officer = AddOfficer::find($request->officer_id);
+            // Fetch the officer details
+            $officer = AddOfficer::find($request->officer_id);
 
-        // Update the report status with the officer's name
-        $report->status = 'Assigned to Officer: ' . $officer->name;
-        $report->save();
+            // Update the report status with the officer's name
+            $report->status = 'Assigned to Officer: ' . $officer->name;
+            $report->save();
 
-        return redirect()->back()->with('success', 'Case assigned to ' . $officer->name);
+            return redirect()->back()->with('success', 'Case assigned to ' . $officer->name);
+        }
+
+        return redirect()->back()->with('error', 'Case is already assigned');
     }
-
-    return redirect()->back()->with('error', 'Case is already assigned');
-}
 
 }

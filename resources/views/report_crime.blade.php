@@ -68,7 +68,9 @@
                     <input type="text" name="location" id="location" required placeholder="WHERE IT HAPPENED" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit
+                    <input type="hidden" name="ref" value="front">
+                </button>
             </form>
         </div>
 

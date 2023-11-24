@@ -22,7 +22,7 @@
                 <p class="text-success">{{ session('success') }}</p>
             @endif
             <div class="table-responsive">
-                <form method="post" enctype="multipart/form-data" action="{{ url('admin/crime-report.store') }}">
+                    <form method="post" enctype="multipart/form-data" action="{{ url('admin/crime/store') }}">
                     @csrf
                     <table class="table table-bordered">
                         <tr>
@@ -71,8 +71,7 @@
                                     <option value="Child Abuse">Child Abuse</option>
                                     <option value="Environmental Crime">Environmental Crime</option>
                                     <option value="Trespassing">Trespassing</option>
-                            <!-- Add more options as needed -->
-                        </select>                                </select>
+                                </select>
                             </td>
                         </tr>
                         <tr>

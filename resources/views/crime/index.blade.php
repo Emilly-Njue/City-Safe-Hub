@@ -34,7 +34,6 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Email</th>
                                 <th>Role</th>
                                 <th>Gender</th>
                                 <th>Crime Type</th>
@@ -48,7 +47,6 @@
                             @foreach($data as $report)
                                 <tr>
                                     <td>{{ $report->id }}</td>
-                                    <td>{{ $report->email }}</td>
                                     <td>{{ $report->role }}</td>
                                     <td>{{ $report->gender }}</td>
                                     <td>{{ $report->crime_type }}</td>
