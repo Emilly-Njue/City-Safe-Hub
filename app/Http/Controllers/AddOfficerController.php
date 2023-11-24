@@ -29,6 +29,7 @@ class AddOfficerController extends Controller
 
         $officer = new AddOfficer;
         $officer->name = $request->name;
+        $officer->email = $request->email;
         $officer->badge_number = $request->badge_number;
         $officer->rank = $request->rank;
         $officer->save();
@@ -58,6 +59,7 @@ class AddOfficerController extends Controller
 
         $officer = AddOfficer::find($id);
         $officer->name = $request->name;
+        $officer->email = $request->email;
         $officer->badge_number = $request->badge_number;
         $officer->rank = $request->rank;
         $officer->save();

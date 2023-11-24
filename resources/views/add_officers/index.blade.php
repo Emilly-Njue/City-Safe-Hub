@@ -21,28 +21,21 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Badge Number</th>
+                        <th>Officer Email</th>
+                        <th>Badge No.</th>
                         <th>Rank</th>
                         <th>Action</th>
 
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Badge Number</th>
-                        <th>Rank</th>
-                        <th>Action</th>
 
-                    </tr>
-                </tfoot>
                 <tbody>
                     @if($officers)
                         @foreach($officers as $d)
                         <tr>
                             <td>{{$d->id}}</td>
                             <td>{{$d->name}}</td>
+                            <td>{{$d->email}}</td>
                             <td>{{$d->badge_number}}</td>
                             <td>{{$d->rank}}</td>
 

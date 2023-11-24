@@ -31,6 +31,10 @@
                             <td><input name="name" type="text" class ="form-control"></td>
                         </tr>
                         <tr>
+                            <th>Officer Email</th>
+                            <td><input name="email" type="text" class ="form-control"></td>
+                        </tr>
+                        <tr>
                             <th>Badge Number</th>
                             <td><input name="badge_number" type="number" class ="form-control"></td>
                         </tr>

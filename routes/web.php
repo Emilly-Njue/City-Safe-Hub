@@ -54,4 +54,6 @@ Route::resource('admin/crime', CrimeReportController::class);
 // Assign Officer to Crime
 Route::post('admin/crime/assign-officer/{id}', [CrimeReportController::class, 'assignOfficer']);
 Route::post('admin/crime/{id}/assign', [CrimeReportController::class, 'assignOfficer'])->name('crime.assign');
+
+// Reporting a crime on the admin side
 Route::post('admin/crime/store', [CrimeReportController::class, 'store'])->name('admin.crime.store');

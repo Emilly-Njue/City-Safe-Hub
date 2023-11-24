@@ -121,6 +121,25 @@ class CrimeReportController extends Controller
             $report->status = 'Assigned to Officer: ' . $officer->name;
             $report->save();
 
+            // sending the email to user
+            $userEmail = $report->email; 
+            $Message = "HELLO. \n\nThank you for reporting the crime on City-Safe Hub. Your report has been assigned to officer {$officer->name}. \n\nWarm regards,\nCITY-SAFE HUB.";
+            
+            Mail::send([], [], function ($message) use ($userEmail, $Message) {
+                $message->to($userEmail)
+                    ->subject('CASE ASSIGNED TO OFFICER.')
+                    ->text($Message);
+            });
+
+            // Send email notification to the admin
+            $adminEmail = 'city.safe.hub@gmail.com'; 
+            Mail::send([], [], function ($message) use ($adminEmail, $report, $officer) {
+                $message->to($adminEmail)
+                    ->subject('New Crime Report Assigned')
+                    ->text("A new report has been made.\nWitness/Victim's email: {$report->email}\n\nWitness/Victim: {$report->role}\nCrime: {$report->crime_type}\nCrime description: {$report->description}\nThe location of the crime: {$report->location}\nCrime report reference code: {$report->random_code}\n\nAssigned to Officer: {$officer->name}");
+            });
+
+
             return redirect()->back()->with('success', 'Case assigned to ' . $officer->name);
         }
 

@@ -25,6 +25,10 @@
                             <td><input value="{{$officer->name}}" name="name" type="text" class ="form-control"></td>
                         </tr>
                         <tr>
+                            <th>Officer Email</th>
+                            <td><input value="{{$officer->email}}" name="email" type="text" class ="form-control"></td>
+                        </tr>
+                        <tr>
                             <th>Badge Number</th>
                             <td><input value="{{$officer->price}}" name="badge_number" type="number" class ="form-control"></td>
                         </tr>

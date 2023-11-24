@@ -19,6 +19,10 @@
                         <td>{{$officer->name}}</td>
                     </tr>
                     <tr>
+                        <th>Officer Email</th>
+                        <td>{{$officer->email}}</td>
+                    </tr>
+                    <tr>
                         <th>Badge Number</th>
                         <td>{{$officer->badge_number}}</td>
                     </tr>
