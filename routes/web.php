@@ -6,6 +6,9 @@ use App\Http\Controllers\CrimeReportController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AddOfficerController;
 use App\Http\Controllers\OfficerController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+
 
 
 
@@ -58,12 +61,21 @@ Route::post('admin/crime/{id}/assign', [CrimeReportController::class, 'assignOff
 // Reporting a crime on the admin side
 Route::post('admin/crime/store', [CrimeReportController::class, 'store'])->name('admin.crime.store');
 
-// For investigation completion
+// For investigation completion/ inconclusive button
 Route::get('admin/crime/{id}/complete-investigation', [CrimeReportController::class, 'completeInvestigation']);
-
 Route::get('admin/crime/{id}/inconclusive-investigation', [CrimeReportController::class, 'inconclusiveInvestigation']);
 
 
 // Generate Report
 Route::get('admin/generate-report', [CrimeReportController::class, 'generateReport'])->name('admin.generateReport');
 
+// Check Progress
+Route::get('/check-progress', [CrimeReportController::class, 'checkProgress'])->name('check.progress');
+Route::post('/check-progress', [CrimeReportController::class,'checkInvestigationProgress'])->name('checkprogress');
+
+// About
+Route::get('about', [AboutController::class,'about'])->name('about');
+
+// Contact
+Route::get('contact', [ContactController::class,'contact'])->name('contact');
+Route::post('/contact/submit', [ContactController::class, 'submitForm'])->name('contact.submit');

@@ -5,7 +5,7 @@
         <div class="report-crime">
             <form method="POST" action="{{ route('crime-report.store') }}">
                 @csrf
-                <h2>Report a Crime</h2>
+                <h2 style="font-size:20px;">Got the scoop on crime? Spill the beans (anonymously!), hero.</h2>
                 @if(Session::has('success'))
                     <div class="alert alert-success">
                         {{session('success')}}

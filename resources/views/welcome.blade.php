@@ -6,7 +6,7 @@
                 <div class="slide-text">
                     <h1>City-Safe Hub</h1>
                     <h2>Protecting, Serving, Caring.</h2>
-                    <p>We're here for you.</p>
+                    <p>Think of us as your silent guardian, the watchful eye in the sky, the Robin to your Batman.</p>
                 </div>
                 <img src="images/police1.jpeg">
             </div>

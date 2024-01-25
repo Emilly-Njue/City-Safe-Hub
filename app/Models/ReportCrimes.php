@@ -11,7 +11,20 @@ class ReportCrimes extends Model
 
     protected $table = 'report_crimes';
 
-    function officers(){
+    protected $fillable = [
+        'email',
+        'role',
+        'gender',
+        'crime_type',
+        'description',
+        'location',
+        'random_code',
+        'status', 
+        'assigned_officer',
+    ];
+
+    public function officers()
+    {
         return $this->belongsTo(Officers::class);
     }
 }

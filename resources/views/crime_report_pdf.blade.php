@@ -46,7 +46,7 @@
             <th>REF</th>
             <th>Role</th>
             <th>Crime Type</th>
-            <th>Location</th>
+            <th>Officer</th>
             <th>Status</th>
         </tr>
     </thead>
@@ -56,7 +56,7 @@
                 <td>{{ $report->random_code }}</td>
                 <td>{{ $report->role }}</td>
                 <td>{{ $report->crime_type }}</td>
-                <td>{{ $report->location }}</td>
+                <td>{{ $report->assigned_officer }}</td>
                 <td>{{ $report->status }}</td>
             </tr>
         @endforeach

@@ -94,7 +94,7 @@ class CrimeReportController extends Controller
        
         // Redirect back to the report crime page and display the success message
         if($request->ref=='front'){
-        return redirect('report_crime')->with('success', 'Report submitted successfully! Your crime report code has been sent to your email.');
+        return redirect('report_crime')->with('success', "Report submitted successfully! Your crime report code has been sent to your email. Don't worry, we're not here to judge, just to help. So, whether it's a missing cat, a noise complaint that's louder than a rock concert, or something bigger brewing, click the 'Report' button and let us know.");
         }
 
         return redirect('admin/crime/create')->with('success', 'Reported crime has been recorded.');
@@ -119,12 +119,16 @@ class CrimeReportController extends Controller
             $request->validate([
                 'officer_id' => 'required|exists:add_officers,id',
             ]);
-
+    
             // Fetch the officer details
             $officer = AddOfficer::find($request->officer_id);
-
-            // Update the report status with the officer's name
-            $report->status = 'Assigned to Officer: ' . $officer->name;
+    
+            // Update the report with the assigned officer
+            $report->assigned_officer = $officer->name;
+    
+            // Update the status to 'Being Investigated'
+            $report->status = 'Being Investigated';
+    
             $report->save();
 
             // sending the email to user
@@ -165,15 +169,15 @@ class CrimeReportController extends Controller
     {
         $report = ReportCrimes::findOrFail($id);
 
-        // Check if the status is 'Assigned to Officer:'
-        if (strpos($report->status, 'Assigned to Officer:') !== false) {
-            // Update the report status to 'Investigation completed'
+        // Check if the status is 'Being Investigated'
+        if ($report->status == 'Being Investigated') {
+            // Update the status to 'Investigation completed'
             $report->status = 'Investigation completed';
             $report->save();
 
             // sending the email to user
             $userEmail = $report->email; 
-            $Message = "HELLO. \n\nThe investigation on your crime report REF:{$report->random_code} on City-Safe Hub has been completed. The officer in-charge was officer {$officer->name} \n\nWarm regards,\nCITY-SAFE HUB.";
+            $Message = "HELLO. \n\nThe investigation on your crime report REF:{$report->random_code} on City-Safe Hub has been completed. \n\nWarm regards,\nCITY-SAFE HUB.";
 
             Mail::send([], [], function ($message) use ($userEmail, $Message) {
                 $message->to($userEmail)
@@ -199,9 +203,9 @@ class CrimeReportController extends Controller
     {
         $report = ReportCrimes::findOrFail($id);
 
-        // Check if the status is 'Assigned to Officer:'
-        if (strpos($report->status, 'Assigned to Officer:') !== false) {
-            // Update the report status to 'Investigation inconclusive'
+        // Check if the status is 'Being Investigated'
+        if ($report->status == 'Being Investigated') {
+            // Update the status to 'Investigation inconclusive'
             $report->status = 'Investigation inconclusive';
             $report->save();
 
@@ -223,7 +227,7 @@ class CrimeReportController extends Controller
                     ->text("The investigation on the crime report with REF: {$report->random_code} was inconclusive.");
             });
 
-            return redirect()->back()->with('success', 'Investigation inconclusive for case ID ' . $report->random_code);
+            return redirect()->back()->with('success', 'Investigation inconclusive for case REF: ' . $report->random_code);
         }
 
         return redirect()->back()->with('error', 'Case is not assigned to an officer');
@@ -252,4 +256,38 @@ class CrimeReportController extends Controller
         // Return the PDF as a response or download it
         return response()->download($pdfPath, $filename);
     }
+
+    public function checkProgress()
+    {
+        return view('check_progress');
+    }    
+   
+    public function checkInvestigationProgress(Request $request)
+    {
+        try {
+            $request->validate([
+                'crimeCode' => 'required|exists:report_crimes,random_code',
+            ]);
+    
+            // Retrieve the report based on the entered crime code
+            $report = ReportCrimes::where('random_code', $request->crimeCode)->first();
+    
+            // Check if a report is found
+            if ($report) {
+                return view('check_progress', ['report' => $report, 'error' => null]);
+            } else {
+                // Report not found, pass an error message
+                $error = 'Crime report not found. Please check the entered code.';
+                return view('check_progress', ['report' => null, 'error' => $error]);
+            }
+        } catch (\Exception $e) {
+            // Log the exception for debugging purposes
+            \Log::error('Exception in checkInvestigationProgress: ' . $e->getMessage());
+    
+            // Return a generic error message
+            return view('check_progress', ['report' => null, 'error' => 'Crime report not found. Please check the entered code.']);
+        }
+    }
+        
+    
 }

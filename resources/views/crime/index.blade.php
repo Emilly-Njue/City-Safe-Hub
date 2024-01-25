@@ -41,6 +41,7 @@
                                 <th>Location</th>
                                 <th>Status</th>
                                 <th>Action</th>
+                                <th>Assigned Officer</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,6 +68,7 @@
                                             <i class="fa fa-ban"></i>
                                         </a>
                                     </td>
+                                    <td>{{ $report->assigned_officer }}</td>
                                 </tr>
                                 <!-- Assign Officer Modal -->
                                 <div class="modal fade" id="assignModal{{$report->id}}" tabindex="-1" role="dialog" aria-labelledby="assignModalLabel{{$report->id}}" aria-hidden="true">
